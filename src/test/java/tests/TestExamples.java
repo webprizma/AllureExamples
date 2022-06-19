@@ -1,0 +1,118 @@
+package tests;
+
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.*;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Selenide.*;
+import static io.qameta.allure.Allure.step;
+
+public class TestExamples {
+
+    String doctor = "Балканова Вероника Сергеевна";
+    String speciality = "Аритмолог";
+    String metro = "Авиамоторная";
+
+    @Test
+    @Owner("kulaginyv")
+    @Severity(SeverityLevel.CRITICAL)
+    @Feature("Список врачей")
+    @Story("Можно найти страницу врача через поиск")
+    @DisplayName("Тестируем поиск врача")
+    @Description("Функциональный тест")
+    @Link(name = "webprizma", url = "https://webprizma.ru")
+    void firstTest() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
+
+        step("Открываем сайт docdoc.ru", () -> {
+            open("https://docdoc.ru/");
+        });
+        step("Вводим специальность " + speciality, () -> {
+            $("div.search-form__input--specialities input").sendKeys(speciality);
+            $$("div[data-test-id='search_items'] span").findBy(Condition.text(speciality)).click();
+        });
+        step("Вводим метро " + metro, () -> {
+            $("div.search-form__input--geo input").sendKeys(metro);
+            $$("div[data-test-id='search_geo_items'] span").findBy(Condition.text(metro)).click();
+        });
+        step("Нажимаем кнопку Искать", () -> {
+            $("button.search-form__button").click();
+        });
+        step("Открываем страницу врача " + doctor, () -> {
+            $$("a[data-test-id='doctor-list-page-card-details__link']")
+                    .findBy(Condition.text(doctor))
+                    .click();
+        });
+        step("Проверяем, что открылась верная страница врача", () -> {
+            $("h1[data-testid='doctor-card__name']")
+                    .shouldHave(Condition.text(doctor));
+        });
+    }
+
+    @Test
+    @Owner("kulaginyv")
+    @Severity(SeverityLevel.NORMAL)
+    @Feature("Список врачей")
+    @Story("Можно найти страницу врача через поиск только по специальности")
+    @DisplayName("Тестируем поиск врача только по специальности")
+    @Description("Функциональный тест")
+    @Link(name = "webprizma", url = "https://webprizma.ru")
+    void secondTest() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
+
+        step("Открываем сайт docdoc.ru", () -> {
+            open("https://docdoc.ru/");
+        });
+        step("Вводим специальность " + speciality, () -> {
+            $("div.search-form__input--specialities input").sendKeys(speciality);
+            $$("div[data-test-id='search_items'] span").findBy(Condition.text(speciality)).click();
+        });
+        step("Нажимаем кнопку Искать", () -> {
+            $("button.search-form__button").click();
+        });
+        step("Открываем страницу врача " + doctor, () -> {
+            $$("a[data-test-id='doctor-list-page-card-details__link']")
+                    .findBy(Condition.text(doctor))
+                    .click();
+        });
+        step("Проверяем, что открылась верная страница врача", () -> {
+            $("h1[data-testid='doctor-card__name']")
+                    .shouldHave(Condition.text(doctor));
+        });
+    }
+
+    @Test
+    @Owner("kulaginyv")
+    @Severity(SeverityLevel.BLOCKER)
+    @Feature("Список врачей")
+    @Story("Можно найти страницу врача через поиск только по метро")
+    @DisplayName("Тестируем поиск врача только по метро")
+    @Description("Функциональный тест")
+    @Link(name = "webprizma", url = "https://webprizma.ru")
+    void thirdTest() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
+
+        step("Открываем сайт docdoc.ru", () -> {
+            open("https://docdoc.ru/");
+        });
+        step("Вводим метро " + metro, () -> {
+            $("div.search-form__input--geo input").sendKeys(metro);
+            $$("div[data-test-id='search_geo_items'] span").findBy(Condition.text(metro)).click();
+        });
+        step("Нажимаем кнопку Искать", () -> {
+            $("button.search-form__button").click();
+        });
+        step("Открываем страницу врача " + doctor, () -> {
+            $$("a[data-test-id='doctor-list-page-card-details__link']")
+                    .findBy(Condition.text(doctor))
+                    .click();
+        });
+        step("Проверяем, что открылась верная страница врача", () -> {
+            $("h1[data-testid='doctor-card__name']")
+                    .shouldHave(Condition.text(doctor));
+        });
+    }
+}
