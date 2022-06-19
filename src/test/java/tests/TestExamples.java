@@ -119,7 +119,7 @@ public class TestExamples {
     @Test
     public void dynamicLabels() {
         Allure.label("owner", "yuri_kulagin");
-        Allure.label("Severity", SeverityLevel.TRIVIAL.toString());
+        Allure.label("severity", "trivial"); // просто передаем строкой
         Allure.feature("Динамические таблички");
         Allure.story("Используем динамические таблички");
         Allure.getLifecycle().updateTestCase(testResult -> testResult.setName("Тест с использованием динамическим табличек"));
