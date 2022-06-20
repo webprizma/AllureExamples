@@ -101,14 +101,14 @@ public class TestExamples {
         ws.checkDoctorPage(doctor);
     }
 
-    @Test
-    public void dynamicLabels() {
-        Allure.label("owner", "yuri_kulagin");
-        Allure.label("severity", SeverityLevel.CRITICAL.value());
-        Allure.feature("Динамические таблички");
-        Allure.story("Используем динамические таблички");
-        Allure.getLifecycle().updateTestCase(testResult -> testResult.setName("Тест с использованием динамическим табличек"));
-        Allure.getLifecycle().updateTestCase(testResult -> testResult.setDescription("Как использовать диначеские таблички"));
-        Allure.link("Webprizma", "https://webprizma.ru");
-    }
+//    @Test
+//    public void dynamicLabels() {
+//        Allure.label("owner", "yuri_kulagin");
+//        Allure.label("severity", SeverityLevel.CRITICAL.value());
+//        Allure.feature("Динамические таблички");
+//        Allure.story("Используем динамические таблички");
+//        Allure.getLifecycle().updateTestCase(testResult -> testResult.setName("Тест с использованием динамическим табличек"));
+//        Allure.getLifecycle().updateTestCase(testResult -> testResult.setDescription("Как использовать диначеские таблички"));
+//        Allure.link("Webprizma", "https://webprizma.ru");
+//    }
 }
