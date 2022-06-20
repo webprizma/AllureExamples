@@ -16,7 +16,7 @@ import static io.qameta.allure.Allure.step;
 
 public class TestExamples {
     @BeforeEach
-    static void beforeEach() {
+    void beforeEach() {
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
@@ -25,7 +25,7 @@ public class TestExamples {
     }
 
     @AfterEach
-    static void afterEach() {
+    void afterEach() {
         Attachments.addVideo();
     }
 
