@@ -14,10 +14,6 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 public class TestExamples {
-    @BeforeEach
-    static void beforeEach() {
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
-    }
     String doctor = "Балканова Вероника Сергеевна";
     String speciality = "Аритмолог";
     String metro = "Авиамоторная";
