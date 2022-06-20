@@ -1,10 +1,11 @@
 package tests;
 
-import com.beust.jcommander.Parameter;
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.*;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -12,6 +13,11 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 public class TestExamples {
+
+    @BeforeEach
+    static void beforeEach() {
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+    }
 
     String doctor = "Балканова Вероника Сергеевна";
     String speciality = "Аритмолог";
@@ -38,10 +44,10 @@ public class TestExamples {
         $$("div[data-test-id='search_geo_items'] span").findBy(Condition.text(metro)).click();
         $("button.search-form__button").click();
         $$("a[data-test-id='doctor-list-page-card-details__link']")
-                    .findBy(Condition.text(doctor))
-                    .click();
+                .findBy(Condition.text(doctor))
+                .click();
         $("h1[data-testid='doctor-card__name']")
-                    .shouldHave(Condition.text(doctor));
+                .shouldHave(Condition.text(doctor));
     }
 
     @Test
