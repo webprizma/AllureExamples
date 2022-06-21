@@ -9,10 +9,12 @@
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
-# Properties files
 
+# Properties files
+*.properties
 
 # Package Files #
+*.jar
 *.war
 *.nar
 *.ear
@@ -25,6 +27,7 @@
 .allure/
 .gradle/
 allure-results/
+gradle/
 build/
 bin/
 out/
@@ -34,5 +37,7 @@ target/
 .project
 .settings/org.eclipse.buildship.core.prefs
 .vscode
+/gradlew
+/gradlew.bat
 
 settings.gradle
