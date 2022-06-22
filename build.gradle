@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'io.qameta.allure' version "2.9.6"
+    id 'io.qameta.allure' version "2.10.0"
 }
 
 group 'ru.webprizma'
@@ -15,20 +15,20 @@ dependencies {
             'org.junit.jupiter:junit-jupiter-api:5.8.2',
             'org.junit.jupiter:junit-jupiter-params:5.8.2',
             'io.qameta.allure:allure-selenide:2.18.1',
-            'com.codeborne:selenide:6.6.3'
+            'com.codeborne:selenide:6.6.4'
     )
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
 }
 
 allure {
     report {
-        version.set("2.17.3") //версия Allure Report (https://github.com/allure-framework/allure2)
+        version.set("2.18.1") //версия Allure Report (https://github.com/allure-framework/allure2)
     }
     adapter {
         aspectjWeaver.set(true) // обработка аннотации @Step
         frameworks {
             junit5 {
-                adapterVersion.set("2.17.3") //версия Allure JUnit5 (https://github.com/allure-framework/allure-java)
+                adapterVersion.set("2.18.1") //версия Allure JUnit5 (https://github.com/allure-framework/allure-java)
             }
         }
     }
