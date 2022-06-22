@@ -1,10 +1,6 @@
 package tests;
 
-import com.beust.jcommander.Parameter;
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.*;
 import io.qameta.allure.selenide.AllureSelenide;
@@ -26,6 +22,7 @@ public class TestExamples {
         Allure.parameter("Метро", "Авиамоторная");
         Allure.parameter("Специальность", "Аритмолог");
     }
+
     @BeforeEach
     void beforeEach() {
         Allure.parameter("Доктор", "Балканова Вероника Сергеевна");
@@ -51,10 +48,10 @@ public class TestExamples {
         $$("div[data-test-id='search_geo_items'] span").findBy(Condition.text(metro)).click();
         $("button.search-form__button").click();
         $$("a[data-test-id='doctor-list-page-card-details__link']")
-                    .findBy(Condition.text(doctor))
-                    .click();
+                .findBy(Condition.text(doctor))
+                .click();
         $("h1[data-testid='doctor-card__name']")
-                    .shouldHave(Condition.text(doctor));
+                .shouldHave(Condition.text(doctor));
     }
 
     @Test
