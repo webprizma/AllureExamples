@@ -15,7 +15,6 @@ public class WebSteps {
     @Step("Вводим метро {metro}")
     public void selectMetro(String metro) {
         $("div.search-form__input--geo input").sendKeys(metro);
-        Selenide.actions().pause(2000);
         $$("div[data-test-id='search_geo_items'] span").findBy(Condition.text(metro)).click();
     }
 

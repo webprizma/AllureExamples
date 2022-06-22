@@ -41,10 +41,8 @@ public class TestExamples {
     void firstTest() {
         open("https://docdoc.ru/");
         $("div.search-form__input--specialities input").sendKeys(speciality);
-        Selenide.actions().pause(2000);
         $$("div[data-test-id='search_items'] span").findBy(Condition.text(speciality)).click();
         $("div.search-form__input--geo input").sendKeys(metro);
-        Selenide.actions().pause(2000);
         $$("div[data-test-id='search_geo_items'] span").findBy(Condition.text(metro)).click();
         $("button.search-form__button").click();
         $$("a[data-test-id='doctor-list-page-card-details__link']")
@@ -66,7 +64,6 @@ public class TestExamples {
         });
         step("Вводим специальность " + speciality, () -> {
             $("div.search-form__input--specialities input").sendKeys(speciality);
-            Selenide.actions().pause(2000);
             $$("div[data-test-id='search_items'] span").findBy(Condition.text(speciality)).click();
         });
         step("Нажимаем кнопку Искать", () -> {
