@@ -15,7 +15,7 @@ public class WebSteps {
      @Step("Вводим метро {metro}")
      public void selectMetro(String metro) {
           $("div.search-form__input--geo input").sendKeys(metro);
-          $$("div[data-test-id='search_geo_items'] span").findBy(Condition.text(metro)).shouldBe(Condition.visible).click();
+          $$("div[data-test-id='search_geo_items'] span").findBy(Condition.text(metro)).click();
      }
      @Step("Нажимаем кнопку Искать")
      public void searchSubmit() {

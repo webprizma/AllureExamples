@@ -46,10 +46,9 @@ public class TestExamples {
     void firstTest() {
         open("https://docdoc.ru/");
         $("div.search-form__input--specialities input").sendKeys(speciality);
-        Selenide.actions().pause(1000);
-        $$("div[data-test-id='search_items'] span").findBy(Condition.text(speciality)).shouldBe(Condition.visible).click();
+        $$("div[data-test-id='search_items'] span").findBy(Condition.text(speciality)).click();
         $("div.search-form__input--geo input").sendKeys(metro);
-        $$("div[data-test-id='search_geo_items'] span").findBy(Condition.text(metro)).shouldBe(Condition.visible).click();
+        $$("div[data-test-id='search_geo_items'] span").findBy(Condition.text(metro)).click();
         $("button.search-form__button").click();
         $$("a[data-test-id='doctor-list-page-card-details__link']")
                     .findBy(Condition.text(doctor))
