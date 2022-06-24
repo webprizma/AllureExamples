@@ -13,10 +13,15 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
+import static io.qameta.allure.model.Parameter.Mode.DEFAULT;
 
 @Owner("kulaginyv")
 @Feature("Список врачей")
 public class TestExamples {
+    String doctor = "Балканова Вероника Сергеевна";
+    String speciality = "Аритмолог";
+    String metro = "Авиамоторная";
+
     @BeforeAll
     static void beforeAll() {
         SelenideLogger.addListener("allure", new AllureSelenide());
@@ -27,11 +32,10 @@ public class TestExamples {
 //        Allure.parameter("Доктор", "Балканова Вероника Сергеевна");
 //        Allure.parameter("Метро", "Авиамоторная");
 //        Allure.parameter("Специальность", "Аритмолог");
+//        Allure.addAttachment("Доктор", "Балканова Вероника Сергеевна");
+//        Allure.addAttachment("Метро", "Авиамоторная");
+//        Allure.addAttachment("Специальность", "Аритмолог");
 //    }
-
-    String doctor = "Балканова Вероника Сергеевна";
-    String speciality = "Аритмолог";
-    String metro = "Авиамоторная";
 
     @Test
     @Severity(SeverityLevel.BLOCKER)

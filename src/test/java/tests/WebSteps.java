@@ -1,7 +1,6 @@
 package tests;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.*;
