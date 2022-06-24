@@ -22,12 +22,12 @@ public class TestExamples {
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
-    @BeforeEach
-    void beforeEach() {
-        Allure.parameter("Доктор", "Балканова Вероника Сергеевна");
-        Allure.parameter("Метро", "Авиамоторная");
-        Allure.parameter("Специальность", "Аритмолог");
-    }
+//    @BeforeEach
+//    void beforeEach() {
+//        Allure.parameter("Доктор", "Балканова Вероника Сергеевна");
+//        Allure.parameter("Метро", "Авиамоторная");
+//        Allure.parameter("Специальность", "Аритмолог");
+//    }
 
     String doctor = "Балканова Вероника Сергеевна";
     String speciality = "Аритмолог";
@@ -40,6 +40,9 @@ public class TestExamples {
     @Description("Функциональный тест")
     @Link(name = "docdoc.ru", url = "https://docdoc.ru/")
     void firstTest() {
+        Allure.parameter("Доктор", "Балканова Вероника Сергеевна");
+        Allure.parameter("Метро", "Авиамоторная");
+        Allure.parameter("Специальность", "Аритмолог");
         open("https://docdoc.ru/");
         $("div.search-form__input--specialities input").sendKeys(speciality);
         $$("div[data-test-id='search_items'] span").findBy(Condition.text(speciality)).click();
@@ -60,6 +63,9 @@ public class TestExamples {
     @Description("Функциональный тест")
     @Link(name = "docdoc.ru", url = "https://docdoc.ru/")
     void secondTest() {
+        Allure.parameter("Доктор", "Балканова Вероника Сергеевна");
+        Allure.parameter("Метро", "Авиамоторная");
+        Allure.parameter("Специальность", "Аритмолог");
         step("Открываем сайт docdoc.ru", () -> {
             open("https://docdoc.ru/");
         });
@@ -88,6 +94,9 @@ public class TestExamples {
     @Description("Функциональный тест")
     @Link(name = "docdoc.ru", url = "https://docdoc.ru/")
     void thirdTest() {
+        Allure.parameter("Доктор", "Балканова Вероника Сергеевна");
+        Allure.parameter("Метро", "Авиамоторная");
+        Allure.parameter("Специальность", "Аритмолог");
         WebSteps ws = new WebSteps();
 
         ws.openMainPage();
